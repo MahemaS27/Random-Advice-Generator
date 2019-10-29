@@ -6,12 +6,13 @@ document.getElementById('close-advice').addEventListener('click', closeAdvice);
 
 function getAdvice() {
     confetti.start();
-    fetch(url) // Call the fetch function passing the url of the API as a parameter (fetch uses GET by default)
-        .then(response => response.json())
-        .then(function(advice) {
-            const adviceData = advice.slip.advice;
-            document.getElementById('advice').innerHTML = adviceData;
+    fetch(url) //by default fetch does a GET request
+        .then(response => response.json()) // when GET request is made, I want the response to be JSON
+        .then(function(advice) { //how we will handle the data (advice object)
+            const adviceData = advice.slip.advice; //advice (reponse).slipobject.advicestring
+            document.getElementById('advice').innerHTML = adviceData; //references the div we want to populate in html
         })
+    
  }
 
  function closeAdvice() {
